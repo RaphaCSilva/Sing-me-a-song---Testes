@@ -8,13 +8,14 @@
     "start": "node dist/index.js",
     "dev:test": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test nodemon src/server.ts",
     "dev": "nodemon src/server.ts",
-    "test:integration": "",
+    "test:integration": "dotenv -e .env.test jest -- -i ./tests/integration",
     "test:unit": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",
