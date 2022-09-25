@@ -30,8 +30,8 @@ describe('empty spec', () => {
 //
 //    cy.intercept("POST", "http://localhost:5000/recommendations/:id/upvote").as("upvote");
 //    
-//  cy.get('svg[onclick="handleUpvote"]').click();
-//    cy.contains("@upvote");
+//    cy.get('svg[onclick="handleUpvote"]').click();
+//    cy.wait("@upvote");
 //  })
 
   it('Deve receber o top recomendações', () => {
@@ -43,5 +43,8 @@ describe('empty spec', () => {
     cy.wait("@getTop");
   })
 
+  it('Deve receber uma recomendação aleatoria', () => {
+// Todo
+  })
 
 })

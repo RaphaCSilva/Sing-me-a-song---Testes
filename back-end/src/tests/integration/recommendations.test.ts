@@ -2,7 +2,8 @@ import supertest from "supertest";
 import { prisma } from "./../../../src/database.js"
 import app from "./../../../src/app.js"
 import { recommendationService } from "../../services/recommendationsService";
-import recommendationsFactory from "../factory/recommendationFactory.js";
+import { recommendationsFactory } from "../factory/recommendationFactory.js";
+
 
 
 describe("testes de integração das recomendações", () => {
