@@ -88,9 +88,9 @@ describe('empty spec', () => {
     
     cy.visit('http://localhost:3000');
     
-    cy.get("[data-cy=top]").click();
+    cy.get("[data-cy=random]").click();
 
-    cy.wait("@getTop");
+    cy.wait("@getRandom");
     cy.get("[data-cy=title]").should("have.length", 1);
   })
 })

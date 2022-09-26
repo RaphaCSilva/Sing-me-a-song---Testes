@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664204840490" clover="3.2.0">
-  <project timestamp="1664204840491" name="All files">
-    <metrics statements="147" coveredstatements="122" conditionals="30" coveredconditionals="19" methods="36" coveredmethods="25" elements="213" coveredelements="166" complexity="0" loc="147" ncloc="147" packages="9" files="14" classes="14"/>
+<coverage generated="1664209235871" clover="3.2.0">
+  <project timestamp="1664209235871" name="All files">
+    <metrics statements="147" coveredstatements="140" conditionals="30" coveredconditionals="22" methods="36" coveredmethods="32" elements="213" coveredelements="194" complexity="0" loc="147" ncloc="147" packages="9" files="14" classes="14"/>
     <package name="src">
       <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/app.ts">
@@ -29,9 +29,9 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="29" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="3"/>
+      <metrics statements="29" coveredstatements="27" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="7"/>
       <file name="recommendationController.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/controllers/recommendationController.ts">
-        <metrics statements="25" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="3"/>
+        <metrics statements="25" coveredstatements="25" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="7"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -40,22 +40,22 @@
         <line num="9" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="18" count="13" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
         <line num="26" count="9" type="stmt"/>
         <line num="28" count="9" type="stmt"/>
         <line num="30" count="7" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
       </file>
       <file name="testController.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/controllers/testController.ts">
@@ -72,27 +72,27 @@
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="14" count="7" type="stmt"/>
-        <line num="16" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="5" type="stmt"/>
+        <line num="14" count="9" type="stmt"/>
+        <line num="16" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="7" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories">
-      <metrics statements="16" coveredstatements="9" conditionals="1" coveredconditionals="0" methods="9" coveredmethods="5"/>
+      <metrics statements="16" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="9" coveredmethods="8"/>
       <file name="recommendationRepository.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/repositories/recommendationRepository.ts">
-        <metrics statements="13" coveredstatements="7" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="5"/>
+        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="8"/>
         <line num="2" count="2" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="46" count="12" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="36" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="46" count="24" type="stmt"/>
         <line num="52" count="2" type="stmt"/>
-        <line num="58" count="8" type="stmt"/>
+        <line num="58" count="18" type="stmt"/>
         <line num="67" count="1" type="stmt"/>
         <line num="72" count="2" type="stmt"/>
       </file>
@@ -138,40 +138,40 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="35" coveredstatements="31" conditionals="6" coveredconditionals="4" methods="10" coveredmethods="9"/>
+      <metrics statements="35" coveredstatements="33" conditionals="6" coveredconditionals="6" methods="10" coveredmethods="9"/>
       <file name="recommendationsService.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/services/recommendationsService.ts">
-        <metrics statements="32" coveredstatements="29" conditionals="6" coveredconditionals="4" methods="9" coveredmethods="9"/>
+        <metrics statements="32" coveredstatements="31" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
         <line num="11" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
         <line num="24" count="11" type="stmt"/>
         <line num="26" count="9" type="stmt"/>
         <line num="31" count="9" type="cond" truecount="1" falsecount="0"/>
         <line num="32" count="2" type="stmt"/>
-        <line num="37" count="17" type="stmt"/>
-        <line num="38" count="15" type="cond" truecount="1" falsecount="0"/>
-        <line num="40" count="12" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="70" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="29" type="stmt"/>
+        <line num="38" count="27" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="23" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="70" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="71" count="1" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="78" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="78" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
         <line num="85" count="2" type="stmt"/>
       </file>
       <file name="testService.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/services/testService.ts">
@@ -187,9 +187,9 @@
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="5" count="9" type="stmt"/>
-        <line num="7" count="9" type="stmt"/>
-        <line num="12" count="9" type="stmt"/>
+        <line num="5" count="52" type="stmt"/>
+        <line num="7" count="52" type="stmt"/>
+        <line num="12" count="52" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="5" type="stmt"/>
         <line num="19" count="5" type="stmt"/>
@@ -201,17 +201,17 @@
       <file name="errorUtils.ts" path="/home/raphael/Documentos/projeto21-singmeasong/back-end/src/utils/errorUtils.ts">
         <metrics statements="16" coveredstatements="14" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="5"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
+        <line num="8" count="9" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="6" type="cond" truecount="1" falsecount="0"/>
         <line num="14" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="15" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="16" count="0" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="3" type="cond" truecount="3" falsecount="1"/>
         <line num="23" count="2" type="stmt"/>
-        <line num="24" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="24" count="6" type="cond" truecount="3" falsecount="1"/>
         <line num="27" count="2" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="31" count="2" type="stmt"/>
