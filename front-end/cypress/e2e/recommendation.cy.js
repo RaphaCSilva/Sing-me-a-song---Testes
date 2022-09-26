@@ -1,15 +1,13 @@
 import { faker } from "@faker-js/faker";
-import { GoArrowUp } from "react-icons/go";
 
 describe('empty spec', () => {
   
-  beforeEach(()=> {
-    cy.visit('http://localhost:3000');
-  })
+//  beforeEach(()=> {
+// reset banco
+//  })
 
   it('Deve criar uma recomendação', () => {
     cy.visit('http://localhost:3000');
-
     const recommendation = {
       name: faker.lorem.words(2),
       link: "https://youtu.be/DYed5whEf4g"
@@ -25,20 +23,25 @@ describe('empty spec', () => {
     cy.contains(recommendation.name);
   })
 
-//  it('Deve dar upvote', () => {
-//    cy.visit('http://localhost:3000');
-//
-//    cy.intercept("POST", "http://localhost:5000/recommendations/:id/upvote").as("upvote");
-//    
-//    cy.get('svg[onclick="handleUpvote"]').click();
-//    cy.wait("@upvote");
-//  })
+  it('Deve dar upvote', () => {
+
+
+    cy.visit('http://localhost:3000');
+    cy.intercept("GET", "http://localhost:5000/recommendations").as("updateRecommendation");
+
+    cy.get("[data-cy=up]").click({ multiple: true });
+  
+    cy.wait("@updateRecommendation");
+    cy.get('[data-cy=score]').should("contain", 1);
+  })
 
   it('Deve receber o top recomendações', () => {
+
     cy.intercept("GET", "http://localhost:5000/recommendations/top/10").as("getTop");
     
+    cy.visit('http://localhost:3000');
     
-    cy.get("#top").click();
+    cy.get("[data-cy=top]").click();
 
     cy.wait("@getTop");
   })
