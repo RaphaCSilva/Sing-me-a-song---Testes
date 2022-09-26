@@ -49,6 +49,22 @@ describe('empty spec', () => {
     cy.get('[data-cy=score]').should("contain", -1);
   });
 
+  it('Deve deletar uma recomendação com menos de -5 de score', () => {
+    
+    cy.createRecommendation();
+
+    cy.visit("http://localhost:3000");
+
+    cy.intercept("GET", "http://localhost:5000/recommendations").as("updateRecommendation");
+
+    for(let i = 0; i < 6; i++){
+      cy.get("[data-cy=down]").click();
+    }
+
+    cy.get("[data-cy=noRecommendations]").should("be.visible");
+
+  });
+
   it('Deve receber o top recomendações', () => {
 
     cy.createRecommendation();
@@ -63,7 +79,18 @@ describe('empty spec', () => {
   })
 
   it('Deve receber uma recomendação aleatoria', () => {
-// Todo
-  })
+    
+    for(let i = 0; i < 10; i++){
+      cy.createRecommendation();
+    }
 
+    cy.intercept("GET", "http://localhost:5000/recommendations/random").as("getRandom");
+    
+    cy.visit('http://localhost:3000');
+    
+    cy.get("[data-cy=top]").click();
+
+    cy.wait("@getTop");
+    cy.get("[data-cy=title]").should("have.length", 1);
+  })
 })
