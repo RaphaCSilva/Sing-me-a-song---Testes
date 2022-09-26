@@ -118,6 +118,15 @@ describe("recommendation service unit test", () => {
         expect(recommendationRepository.getAmountByScore).toBeCalled();
     });
 
-    
+    it("Deve retornar uma recomendação aleatoria", async () => {
+        const recomendation = recommendationsFactory();
+        jest
+            .spyOn(recommendationRepository, "findAll")
+            .mockImplementationOnce((): any => [recomendation]);
+
+        await recommendationService.getRandom();
+        expect(recommendationRepository.findAll).toBeCalled();
+    });
+
 });
 

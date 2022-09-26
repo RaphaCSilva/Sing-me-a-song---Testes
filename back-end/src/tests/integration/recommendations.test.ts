@@ -9,7 +9,7 @@ import { recommendationsFactory } from "../factory/recommendationFactory.js";
 describe("testes de integração das recomendações", () => {
 
     beforeEach(async () => {
-            // resetar o banco
+        await prisma.$executeRaw`TRUNCATE TABLE recommendations`
     })
     
     
@@ -60,8 +60,8 @@ describe("testes de integração das recomendações", () => {
         const response = await supertest(app)
             .post("/recommendations")
             .send(recommendation);
-        //garantir que não registraram duas no banco
-        const recomendationDB = await prisma.recommendation.findMany({
+
+            const recomendationDB = await prisma.recommendation.findMany({
             where: {
                 name: recommendation.name
             }
@@ -164,4 +164,125 @@ describe("testes de integração das recomendações", () => {
         expect(response.status).toEqual(200);
         expect(recommendationExcluida).toBeNull();
     });
-})
+
+    it("Deve retornar status 200 e 10 recomendações", async () => {
+        for(let i=0; i < 20; i++){
+            const recommendation = recommendationsFactory();
+            await prisma.recommendation.create({
+                data: recommendation
+            });
+        }
+        
+        const response = await supertest(app).get("/recommendations").send();
+        
+        expect(response.status).toEqual(200);
+        expect(response.body.length).toEqual(10);
+    });
+
+    function getRandomInt(min: number, max: number) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    it("Deve retornar status 200 e N recomendações",async () => {
+        const N = getRandomInt(1, 9);
+
+        for(let i=0; i < N; i++){
+            const recommendation = recommendationsFactory();
+            await prisma.recommendation.create({
+                data: recommendation
+            });
+        }
+
+        const response = await supertest(app).get("/recommendations").send();
+        expect(response.status).toEqual(200);
+        expect(response.body.length).toEqual(N);
+    });
+
+    it("Deve retornar status 200 e nenhuma recomendação caso banco vazio",async () => {
+        const response = await supertest(app).get("/recommendations").send();
+        expect(response.status).toEqual(200);
+        expect(response.body.length).toEqual(0);
+    });
+
+    it("Deve retornar status 200 e a recomendação de um id especifico",async () => {
+        const recommendation = recommendationsFactory();
+        const recomendationDB = await prisma.recommendation.create({
+            data: recommendation
+        });
+
+        const response = await supertest(app)
+            .get(`/recommendations/${recomendationDB.id}`)
+            .send();
+        
+        expect(response.status).toEqual(200);
+        expect(response.body.id).toEqual(recomendationDB.id);
+    });
+    
+    it("Deve retornar status 404 caso tente buscar uma recomendação de um id inexistente",async () => {
+        
+        const response = await supertest(app)
+            .get(`/recommendations/1`)
+            .send();
+    
+        expect(response.status).toEqual(404); 
+    });
+
+    it("Deve retornar status 200 e uma recomendação aleatoria",async () => {
+        for(let i=0; i < 10; i++){
+            const recommendation = recommendationsFactory();
+            await prisma.recommendation.create({
+                data: recommendation
+            });
+        }
+        const response = await supertest(app)
+            .get("/recommendations/random")
+            .send();
+        
+        expect(response.status).toEqual(200);
+        expect(response.body.id).not.toBeNull();
+    });
+
+    it("Deve retornar status 404 caso tente buscar recomendação aleatoria com banco vazio",async () => {
+        const response = await supertest(app)
+            .get("/recommendations/random")
+            .send();
+        
+        expect(response.status).toEqual(404);
+        expect(response.body).toEqual({});
+    });
+
+    it("Deve retornar status 200 a quantidade desejada em ordem",async () => {
+        const N = getRandomInt(2,10);
+        for(let i = 0; i < N; i++){
+            const recommendation = recommendationsFactory();
+            const recommendationDB = await prisma.recommendation.create({
+                data: recommendation
+            });
+            for(let j=0; j < i; j++){
+                await supertest(app)
+                    .post(`/recommendations/${recommendationDB.id}/upvote`)
+                    .send();
+            }
+        }  
+        const response = await supertest(app)
+            .get(`/recommendations/top/${N}`)
+            .send();
+
+        expect(response.status).toEqual(200);
+        expect(response.body.length).toEqual(N);
+        expect(response.body[0].score).toBeGreaterThanOrEqual(response.body[1].score);
+        expect(response.body[1].score).toBeGreaterThanOrEqual(response.body[2].score);
+    });
+    
+    it("Deve retornar status 200 e array vazio para caso banco vazio",async () => {
+        const response = await supertest(app)
+            .get(`/recommendations/top/10`)
+            .send();
+
+        expect(response.status).toEqual(200);
+        expect(response.body).toEqual([]);
+    })
+    
+});
